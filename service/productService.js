@@ -1,5 +1,6 @@
+const constant = require('../constant');
 const Product = require('../database/model/productModel')
-const {formateMongoDb} = require('../helper/dbHelper');
+const {formateMongoDb, checkObjectId} = require('../helper/dbHelper');
 
 module.exports.createProduct = async (serviceData)=>{
     try {
@@ -15,6 +16,20 @@ module.exports.createProduct = async (serviceData)=>{
 module.exports.allProduct = async ({skip=0, limit=0})=>{
     try {
         let product = await Product.find({}).skip(parseInt(skip)).limit(parseInt(limit));
+        return formateMongoDb(product);
+    } catch (error) {
+        console.log('service getting Prodct error');
+        throw Error(error);
+    }
+}
+
+module.exports.getProductById = async ({id})=>{
+    try {
+        checkObjectId(id);
+        let product = await Product.findById(id);
+        if(!product){
+            throw new Error(constant.productMesage.productNotFound);
+        }
         return formateMongoDb(product);
     } catch (error) {
         console.log('service getting Prodct error');
