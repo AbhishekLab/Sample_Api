@@ -11,6 +11,14 @@ module.exports = {
         updateProduct : 'Update Product Sucessfully',
         deleteProduct : 'Delete Product Sucessfully'
     },
+    signUpMessage : {
+        message : 'Sign Up Sucessfully',
+        dublicate : 'Email id already exist'
+    },
+    loginMessage :{
+        message:'Login Sucessfully',
+        loginError: 'User Not Found'
+    },
     requestValidationMessage : {
         BAD_REQUEST : 'Invalid Fields'
     },
