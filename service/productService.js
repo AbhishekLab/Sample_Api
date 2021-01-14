@@ -36,3 +36,36 @@ module.exports.getProductById = async ({id})=>{
         throw Error(error);
     }
 }
+
+
+module.exports.updateProduct = async ({id, updateInfo})=>{
+    try {
+        checkObjectId(id);
+        let product = await Product.findOneAndUpdate(
+            {_id : id},
+            updateInfo,
+            {new : true}
+        )
+        if(!product){
+            throw new Error(constant.productMesage.productNotFound);
+        }
+        return formateMongoDb(product);
+    } catch (error) {
+        console.log('service getting Prodct error');
+        throw Error(error);
+    }
+}
+
+module.exports.deleteProductById = async ({id})=>{
+    try {
+        checkObjectId(id);
+        let product = await Product.findByIdAndDelete(id)
+        if(!product){
+            throw new Error(constant.productMesage.productNotFound);
+        }
+        return formateMongoDb(product);
+    } catch (error) {
+        console.log('service getting Prodct error');
+        throw Error(error);
+    }
+}
