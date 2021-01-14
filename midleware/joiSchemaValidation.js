@@ -30,3 +30,20 @@ module.exports.validateBody = (schema) => {
         
     }
 }
+
+
+
+module.exports.validateQueryParams = (schema) => {
+    return(req,res,next) => {
+        //validation
+        const error = validateObjectSchema(req.query, schema);
+        let response = {...constaint.defaultServerResponse};
+        if(error){
+            response.body = error;
+            response.message = constaint.requestValidationMessage.BAD_REQUEST;
+            return res.status(response.status).send(response);
+        }
+        return next();
+        
+    }
+}

@@ -6,6 +6,7 @@ module.exports = {
     },
     productMesage:{
         message: 'Product Created Successfully',
+        fetchedMessage : 'Product Fetch Sucessfully'
     },
     requestValidationMessage : {
         BAD_REQUEST : 'Invalid Fields'

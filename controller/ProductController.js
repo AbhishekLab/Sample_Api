@@ -6,7 +6,7 @@ module.exports.createProduct = async (req,res) => {
   try {
     const responseFromService = await productService.createProduct(req.body);
     response.status = 200;
-    response.message = constantValue.productMesage;
+    response.message = constantValue.productMesage.message;
     response.body = responseFromService;
     
   } catch (error) {
@@ -21,9 +21,9 @@ module.exports.createProduct = async (req,res) => {
 module.exports.getAllProduct = async (req,res) => {
   let response = {...constantValue.defaultServerResponse};
   try {
-    const responseFromService = await productService.allProduct();
+    const responseFromService = await productService.allProduct(req.query);
     response.status = 200;
-    response.message = constantValue.productMesage;
+    response.message = constantValue.productMesage.fetchedMessage;
     response.body = responseFromService;
     
   } catch (error) {
@@ -36,20 +36,3 @@ module.exports.getAllProduct = async (req,res) => {
 
 
 
-
-
-module.exports.getAllProduct = async (req,res) => {
-  let response = {...constantValue.defaultServerResponse};
-  try {
-    const responseFromService = await productService.allProduct();
-    response.status = 200;
-    response.message = constantValue.message;
-    response.body = responseFromService;
-    
-  } catch (error) {
-    response.message = error.message
-    console.log('something went wrong controller in get Product');
-  }
-
-  return res.status(response.status).send(response);
-  };

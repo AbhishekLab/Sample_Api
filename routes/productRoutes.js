@@ -5,7 +5,8 @@ const joiSchemaValidation = require('../midleware/joiSchemaValidation')
 const productSchema = require('../apiSchema/productSchema')
 
 
-router.get('/all', productController.getAllProduct)
+router.get('/all', joiSchemaValidation.validateQueryParams(productSchema.getProductSchema),
+ productController.getAllProduct)
 
 
 router.post('/',

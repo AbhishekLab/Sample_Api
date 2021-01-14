@@ -12,9 +12,9 @@ module.exports.createProduct = async (serviceData)=>{
     }
 }
 
-module.exports.allProduct = async ()=>{
+module.exports.allProduct = async ({skip=0, limit=0})=>{
     try {
-        let product = await Product.find({});
+        let product = await Product.find({}).skip(parseInt(skip)).limit(parseInt(limit));
         return formateMongoDb(product);
     } catch (error) {
         console.log('service getting Prodct error');
