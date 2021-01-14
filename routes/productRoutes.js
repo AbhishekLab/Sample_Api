@@ -6,7 +6,7 @@ const tokenValidation = require('../midleware/tokenValidation')
 const productSchema = require('../apiSchema/productSchema')
 
 
-router.get('/all',
+router.get('/',
     tokenValidation.valodateToekn,
     joiSchemaValidation.validateQueryParams(productSchema.getProductSchema),
     productController.getAllProduct)

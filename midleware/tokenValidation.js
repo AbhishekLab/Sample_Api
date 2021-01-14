@@ -8,7 +8,7 @@ module.exports.valodateToekn = (req, res, next) => {
         if (!req.headers.authorization) {
             throw new Error(constant.requestValidationMessage.TOKEN_MISSING);
         }  
-        const token = req.headers.authorization.split('Bearer')[1].trim();
+        const token = req.headers.authorization;
         jwt.verify(token, process.env.SECRET_KEY || 'my-secret-key')
         return next();
 

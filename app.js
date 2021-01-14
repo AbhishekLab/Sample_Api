@@ -7,6 +7,9 @@ const dbConnection = require('./database/dbConnection')
 
 var indexRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/usersRoutes');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml'); 
 
 var app = express();
 
@@ -24,7 +27,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/product', indexRouter);
-app.use('/api/v1', usersRouter);
+app.use('/api/v1/user', usersRouter);
+
+
+// API Documentation
+if (process.env.NODE_ENV != 'production') {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
