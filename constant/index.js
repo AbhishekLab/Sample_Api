@@ -20,7 +20,8 @@ module.exports = {
         loginError: 'User Not Found'
     },
     requestValidationMessage : {
-        BAD_REQUEST : 'Invalid Fields'
+        BAD_REQUEST : 'Invalid Fields',
+        TOKEN_MISSING : 'Token Missing'
     },
     databaseMessage :{
         dbError : 'Inavild Id'
