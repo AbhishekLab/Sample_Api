@@ -5,7 +5,7 @@ const constant = require('../constant');
 module.exports = async ()=>{
 //connect
 try {
-    await mongoose.connect("mongodb+srv://TheImortal:EDrQ25l40aKLBAgc@cluster0.uo2op.mongodb.net/Sample-Api?retryWrites=true&w=majority",
+    await mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/apiDb",
      {useNewUrlParser: true, useUnifiedTopology: true})
     console.log('Database connectivity establish');
 } catch (error) {
