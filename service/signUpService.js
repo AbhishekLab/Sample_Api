@@ -1,7 +1,6 @@
 const User = require('../database/model/signUpModel');
 const constants = require('../constant');
 const { formateMongoDb } = require('../helper/dbHelper');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
@@ -11,7 +10,7 @@ module.exports.signUp = async ({ email, password }) => {
     if (user) {
       throw new Error(constants.signUpMessage.dublicate);
     }
-    password = await bcrypt.hash(password, 12);
+    //password = await bcrypt.hash(password, 12);
     const newUser = new User({ email, password });
     let result = await newUser.save();
     return formateMongoDb(result);
@@ -23,14 +22,14 @@ module.exports.signUp = async ({ email, password }) => {
 
 module.exports.login = async ({ email, password }) => {
   try {
-    const user = await User.findOne({ email });
+    const user = await User.find({ email, password });
     if (!user) {
       throw new Error(constants.loginMessage.loginError);
     }
-    const isValid = await bcrypt.compare(password, user.password);
+   /*  const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       throw new Error(constants.userMessage.INVALID_PASSWORD);
-    }
+    } */
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
     return { token };
   } catch (error) {
