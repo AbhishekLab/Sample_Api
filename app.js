@@ -36,7 +36,7 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 app.get('/', (req, res) => {
-  res.send('/api-docs');
+  res.redirect('/api-docs');
 });
 
 // catch 404 and forward to error handler
