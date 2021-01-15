@@ -32,8 +32,12 @@ app.use('/api/v1/user', usersRouter);
 
 // API Documentation
 if (process.env.NODE_ENV != 'production') {
-  app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 }
+
+app.get('/',(req,res,next)=>{
+  res.send("Hello Abhishek");
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
