@@ -96,10 +96,7 @@ app.use('/api/v1/product', indexRouter);
 app.use('/api/v1/user', usersRouter);
 
 
-// API Documentation
-/* if (process.env.NODE_ENV != 'production') {
-  
-} */
+
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
   res.redirect('/');

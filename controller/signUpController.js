@@ -8,8 +8,6 @@ module.exports.signUp = async (req,res) => {
     response.status = 200;
     response.message = constantValue.signUpMessage.message;
     response.body = responseFromService;
-
-    console.log('sucesss');
     
   } catch (error) {
     response.message = error.message
