@@ -97,10 +97,10 @@ app.use('/api/v1/user', usersRouter);
 
 
 // API Documentation
-if (process.env.NODE_ENV != 'production') {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-}
-
+/* if (process.env.NODE_ENV != 'production') {
+  
+} */
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
   res.redirect('/api-docs');
 });
