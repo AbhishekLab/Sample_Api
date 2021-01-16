@@ -100,9 +100,9 @@ app.use('/api/v1/user', usersRouter);
 /* if (process.env.NODE_ENV != 'production') {
   
 } */
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
-  res.redirect('/api-docs');
+  res.redirect('/');
 });
 
 // catch 404 and forward to error handler
