@@ -6,7 +6,7 @@ const customerControll = require('../controller/customerController')
 
 router.post('/',
     joiSchemaValidation.validateBody(customerSchema.createCustomerSchema),
-    customerControll);
+    customerControll.createCustomerList);
 
 
 router.get('/',
