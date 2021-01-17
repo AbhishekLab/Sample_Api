@@ -9,6 +9,7 @@ const dbConnection = require('./database/dbConnection')
 
 var indexRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/usersRoutes');
+var customerRouter = require('./routes/customerRoutes');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml'); 
@@ -68,17 +69,6 @@ function onListening() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 //database connectivity
 dbConnection();
 
@@ -92,8 +82,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//rouitng
 app.use('/api/v1/product', indexRouter);
 app.use('/api/v1/user', usersRouter);
+app.use('/api/v1/userList', customerRouter);
 
 
 
