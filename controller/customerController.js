@@ -11,7 +11,7 @@ module.exports.createCustomerList = async (req,res) => {
     
   } catch (error) {
     response.message = error.message
-    console.log('something went wrong controller create Product');
+    console.log('something went wrong controller create Customer');
   }
 
   return res.status(response.status).send(response);

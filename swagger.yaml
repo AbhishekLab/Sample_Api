@@ -278,6 +278,26 @@ definitions:
       brand:
         type: string
         description: product brand
+  Customer:
+    properties:
+      name:
+        type: string
+        description: customer name
+      email:
+        type: string
+        description: customer email
+      like:
+        type: string
+        description: customer likes
+      photo:
+        type: string
+        description: customer photo
+      gender:
+        type: string
+        description: customer gender
+      age:
+        type: string
+        description: customer age
   ApiResponse:
     type: object
     properties:
