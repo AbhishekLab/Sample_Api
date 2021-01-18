@@ -286,7 +286,7 @@ definitions:
       email:
         type: string
         description: customer email
-      like:
+      phone:
         type: string
         description: customer likes
       photo:
@@ -295,9 +295,6 @@ definitions:
       gender:
         type: string
         description: customer gender
-      age:
-        type: string
-        description: customer age
   ApiResponse:
     type: object
     properties:

@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 const customerListSchema = mongoose.Schema({
 name : String,
 email: String,
-like:String,
+phone:String,
 photo:String,
-gender:String,
-age:Number
+gender:String
 
 },
 {
