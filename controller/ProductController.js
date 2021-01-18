@@ -6,7 +6,7 @@ module.exports.createProduct = async (req,res) => {
   try {
     const responseFromService = await productService.createProduct(req.body);
     response.status = 200;
-    response.message = constantValue.registerUser.message;
+    response.message = constantValue.productMesage.message;
     response.body = responseFromService;
     
   } catch (error) {
