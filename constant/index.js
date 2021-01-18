@@ -26,5 +26,9 @@ module.exports = {
     databaseMessage :{
         dbError : 'Inavild Id'
     },
+    registerUser: {
+        message:'Register Sucessfully',
+        errorMessage:'Register Failed'
+    }
     
 };  
