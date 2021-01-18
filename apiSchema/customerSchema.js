@@ -2,7 +2,7 @@ const Joi = require('@hapi/joi');
 
 module.exports.createCustomerSchema = Joi.object().keys({
     name : Joi.string().required(),
-    email : Joi.number().required(),
+    email : Joi.string().required(),
     like : Joi.string().required(),
     photo : Joi.string().required(),
     gender : Joi.string().required(),

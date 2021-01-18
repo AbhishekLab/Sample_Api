@@ -86,7 +86,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //rouitng
 app.use('/api/v1/product', indexRouter);
 app.use('/api/v1/user', usersRouter);
-app.use('/api/v1/userList', customerRouter);
+app.use('/api/v1/customer', customerRouter);
 
 
 

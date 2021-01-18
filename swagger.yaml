@@ -195,6 +195,64 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
+  /customer:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Customer Module
+      summary: Customer API
+      description: API for creating customer
+      parameters:
+        - in: body
+          name: body
+          description: Create Customer Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Customer'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Customer Created Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error  
+
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Customer Module
+      summary: Customer API
+      description: API for fetching all products
+      parameters:
+        - name: skip
+          in: query
+          description: No.of record to be skipped for pagination
+          type: number
+          required: false
+        - name: limit
+          in: query
+          description: no. of record api should return for pagination
+          type: number
+          required: false
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Customer List fetched Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
