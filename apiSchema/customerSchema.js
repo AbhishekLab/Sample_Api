@@ -5,7 +5,8 @@ module.exports.createCustomerSchema = Joi.object().keys({
     email : Joi.string().required(),
     phone : Joi.string(),
     photo : Joi.string().required(),
-    gender : Joi.string().required()
+    gender : Joi.string().required(),
+    password : Joi.string().required()
 })
 
 module.exports.getCustomerListSchema = Joi.object().keys({

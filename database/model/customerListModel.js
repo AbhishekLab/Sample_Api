@@ -6,7 +6,8 @@ name : String,
 email: String,
 phone:String,
 photo:String,
-gender:String
+gender:String,
+password:String
 
 },
 {

@@ -295,6 +295,9 @@ definitions:
       gender:
         type: string
         description: customer gender
+      password:
+        type: string
+        description: customer password
   ApiResponse:
     type: object
     properties:
