@@ -1,3 +1,5 @@
+const { backgroundImage } = require("../service/backgroundImageService");
+
 module.exports = {
     defaultServerResponse :{ 
         status : 400,
@@ -29,6 +31,9 @@ module.exports = {
     registerUser: {
         message:'Register Sucessfully',
         errorMessage:'Register Failed'
+    },
+    backgroundImage : {
+        message : 'Image Uploaded '
     }
     
 };  

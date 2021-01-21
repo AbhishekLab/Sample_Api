@@ -10,6 +10,7 @@ const dbConnection = require('./database/dbConnection')
 var indexRouter = require('./routes/productRoutes');
 var usersRouter = require('./routes/usersRoutes');
 var customerRouter = require('./routes/customerRoutes');
+var backgroundImageRoutes = require('./routes/backgroundImageRoutes')
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml'); 
@@ -87,6 +88,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/product', indexRouter);
 app.use('/api/v1/user', usersRouter);
 app.use('/api/v1/customer', customerRouter);
+
+app.use('/api/v1/background', backgroundImageRoutes);
 
 
 
