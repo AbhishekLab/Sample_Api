@@ -253,6 +253,58 @@ paths:
         '500':
           description: Internal Server Error
 
+
+  /background:
+    post:
+      tags:
+        - Background Image Module
+      summary: Image
+      description: API for Login
+      parameters:
+        - in: body
+          name: body
+          description: Background Payload
+          required: true
+          schema:
+            $ref: '#/definitions/BackgroundImage'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: BackgroundImage Added Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  
+    get:
+      security:
+        - Bearer: []
+      tags:
+      - Background Image Module
+      summary: Fetch Product Detail
+      description: Fetch Product Detail
+      parameters:
+        - name: id
+          in: path
+          description: Background Image 
+          type: string
+          required: true
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Background Image  Fetched Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+     
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -298,6 +350,14 @@ definitions:
       password:
         type: string
         description: customer password
+
+  Background Image:
+    properties: 
+      image:
+        type: string
+        description: background images
+
+
   ApiResponse:
     type: object
     properties:
