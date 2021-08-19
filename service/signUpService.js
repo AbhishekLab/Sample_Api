@@ -25,13 +25,11 @@ module.exports.login = async ({ email, password }) => {
     const user = await User.find({ email, password });
     if (!user) {
       throw new Error(constants.loginMessage.loginError);
+    }else{
+      const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
+      return { token };
     }
-   /*  const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) {
-      throw new Error(constants.userMessage.INVALID_PASSWORD);
-    } */
-    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY || 'my-secret-key', { expiresIn: '1d' });
-    return { token };
+  
   } catch (error) {
     console.log('Something went wrong: Service: login', error);
     throw new Error(error);

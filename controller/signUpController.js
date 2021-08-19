@@ -28,7 +28,7 @@ module.exports.login = async (req,res) => {
     
   } catch (error) {
     response.message = error.message
-    console.log('something went wrong  : SignUp not done');
+    console.log('something went wrong  : Login not done');
   }
 
   return res.status(response.status).send(response);
