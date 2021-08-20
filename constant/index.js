@@ -19,7 +19,8 @@ module.exports = {
     },
     loginMessage :{
         message:'Login Sucessfully',
-        loginError: 'User Not Found'
+        loginError: 'User Not Found',
+        invalid_password: "Invalid Password"
     },
     requestValidationMessage : {
         BAD_REQUEST : 'Invalid Fields',
